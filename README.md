@@ -3,7 +3,7 @@
 [![Demo Video](https://img.shields.io/badge/DEMO-VIDEO-blueviolet?style=for-the-badge)](https://res.cloudinary.com/dmyxu8m6x/video/upload/v1744442001/gnjlntdsl8dgdied1rkc.mp4)
 [![npm version](https://img.shields.io/npm/v/react-native-action-toast.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-action-toast)
 
-A premium toast notification system for React Native with action buttons, beautiful animations, and Expo compatibility.
+An elegant toast notification library for React Native featuring interactive action buttons, smooth animations, and seamless Expo integration
 
 ---
 
@@ -17,12 +17,11 @@ A premium toast notification system for React Native with action buttons, beauti
 
 ---
 
-## 🎥 Demo Video
+## 🎥 Watch it in Action
 
-<video width="100%" controls>
-  <source src="https://res.cloudinary.com/dmyxu8m6x/video/upload/v1744442001/gnjlntdsl8dgdied1rkc.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Watch the demo](https://img.shields.io/badge/WATCH_DEMO-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://res.cloudinary.com/dmyxu8m6x/video/upload/v1744442001/gnjlntdsl8dgdied1rkc.mp4)
+
+*(Click the badge above to watch the demo video)*
 
 ---
 
@@ -38,6 +37,68 @@ yarn add react-native-action-toast
 or
 ```
 npx expo install react-native-action-toast
+```
+---
+## 🪶Quick Start
+1. Add ToastManger in App
+```
+import { ToastManager, initializeToast } from 'react-native-action-toast';
+
+export default function App() {
+  const toastRef = initializeToast(); // intialze ref
+  
+  return (
+    <>
+      {/* Your app content */}
+      <ToastManager ref={toastRef} /> // Add ToastManger and pass the toastRef
+    </>
+  );
+}
+```
+
+2. Start using toasts anywhere in the app.
+```
+import { getToastManager } from 'react-native-action-toast';
+
+
+// Toast with action buttons
+getToastManager().showToast({
+  title: "New Message",
+  message: "You have 3 unread conversations",
+  position: "top",
+  actionButtons: [
+    {
+      text: "View",
+      onPress: () => console.log("View pressed"),
+      backgroundColor: "#4CAF50"
+    }
+  ]
+});
+
+// Quick methods
+//Success
+getToastManager().showSuccess(
+    "Profile Saved", //messgae
+    undefined, //backgroundColor if not passed will use default colors
+    "bottom" //position
+    )
+// Error
+getToastManager().showError(
+    "Failed to save changes",
+    "red",
+    "top"
+    )
+//Similar showInfo and showWarning methods
+    
+//Quick custom toast
+getToastManager().showCustom(
+    "Custom settings have been applied", //message
+    "Custom Style", //title
+    "bottom", //postiton
+    "palette", //icon name
+    undefined, //backgroundColor
+    ["#9c27b0", "#673ab7"] //gradinet colors
+    )
 ```
 ---
 ## 📚 API Reference
@@ -103,8 +164,7 @@ npx expo install react-native-action-toast
       <td>Array of action buttons</td>
     </tr>
   </tbody>
-</table>              |
-```
+</table>
 
 ---
 
