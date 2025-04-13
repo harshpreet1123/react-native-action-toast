@@ -1,6 +1,6 @@
 {
   "name": "react-native-action-toast",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A premium, customizable toast notification system for React Native with action buttons, beautiful animations, and Expo compatibility",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -29,7 +29,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/harshpreet1123/react-native-action-toast.git"
+    "url": "git+https://github.com/harshpreet1123/react-native-action-toast.git"
   },
   "bugs": {
     "url": "https://github.com/harshpreet1123/react-native-action-toast/issues"
